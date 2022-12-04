@@ -1,0 +1,4 @@
+flask/.env
+flask/cigar-db_venv
+flask/__pycache__/
+flask/migrations
