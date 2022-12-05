@@ -6,6 +6,9 @@ import Home from './views/Home';
 import Login from './views/Login';
 import Signup from './views/Signup';
 import Chart from './views/Chart';
+import CigarDB from './views/CigarDB';
+import API from './views/API';
+import SingleCigar from './views/SingleCigar';
 
 export default class App extends Component {
   constructor() {
@@ -38,6 +41,9 @@ export default class App extends Component {
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/cigardb' element={<CigarDB />} />
+          <Route path='/cigardb/:cigarId' element={<SingleCigar />} />
+          <Route path='/api' element={<API />} />
           <Route path='/chart' element={<Chart />} />
 
         </Routes>

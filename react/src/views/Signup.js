@@ -41,9 +41,9 @@ export default class Signup extends Component {
           <input placeholder='Last Name' name='lname' className='form-control' type='text' />
           <input placeholder='Email' name='email' className='form-control' type='email' />
           <input placeholder='Username' name='username' className='form-control' type='text' />
-          <input placeholder='Password' name='password' className='' type='password' />
-          <input placeholder='Confirm Password' name='cnfmPswd' className='' type='password' />
-          <button type='submit' className='btn btn-primary'>submit</button>
+          <input placeholder='Password' name='password' className='form-control' type='password' />
+          <input placeholder='Confirm Password' name='cnfmPswd' className='form-control' type='password' />
+          <button type='submit' className='btn btn-success'>submit</button>
         </form>
       </div>
     )
