@@ -54,6 +54,17 @@ def getCigar_smdbAPIperPage(page_num):
         'total_results': len(all_cigars)
     }
 
+@app.get('/api/cigars/<string:name>')
+def filterCigarByName(filter):
+    cigar_filter = '%' + filter + '%'
+    filtered_cigars = Cigars.query.filter(Cigars.cigar.ilike(cigar_filter)).all()
+    new_cigars = [filtered_cigar.to_dict() for filtered_cigar in filtered_cigars]
+    return {
+        'status': 'ok',
+        'data': new_cigars,
+        'total_results': len(new_cigars)
+    }
+
 @app.get('/api/cigar_smdb/search')
 def search(cigar_id):
     cigars = Cigar_smdb.query.filter(Cigar_smdb.cigar_id == cigar_id).all()
