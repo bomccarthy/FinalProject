@@ -7,8 +7,8 @@ import Login from './views/Login';
 import Signup from './views/Signup';
 import Chart from './views/Chart';
 import CigarDB from './views/CigarDB';
-import API from './views/API';
 import SingleCigar from './views/SingleCigar';
+import API from './views/API';
 
 export default class App extends Component {
   constructor() {
@@ -19,38 +19,46 @@ export default class App extends Component {
       email: '',
       username: '',
       password: '',
-      confirmPw: ''
+      confirmPw: '',
+      message: {}
     };
     console.log('construction is done')
   }
 
+  addMessage = (msg, category) => {
+    this.setState({message: {message: msg, category: category}})
+  };
+
   componentDidMount = () => {
     console.log('first rendering is complete')
-  }
+  };
 
   render() {
     console.log('rendering is about to happen')
-  return (
+    return (
 
-    <Router>
-      <div>
-        <Nav />
-
+      <Router>
         <Routes>
-
-          <Route path='/' element={<Home />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/cigardb' element={<CigarDB />} />
-          <Route path='/cigardb/:cigarId' element={<SingleCigar />} />
           <Route path='/api' element={<API />} />
-          <Route path='/chart' element={<Chart />} />
-
         </Routes>
-        
-        <Footer />
-      </div>
-    </Router>
-  )
+        <div>
+          <Nav />
+          <p className={`messages bg-${this.state.message.category}`}>{this.state.message.message}</p>
+
+          <Routes>
+
+            <Route path='/' element={<Home />} />
+            <Route path='/signup' element={<Signup addMessage={this.addMessage} />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/cigardb' element={<CigarDB />} />
+            <Route path='/cigardb/:cigarId' element={<SingleCigar />} />
+            <Route path='/chart' element={<Chart />} />
+
+          </Routes>
+
+          <Footer />
+        </div>
+      </Router>
+    )
   }
 }

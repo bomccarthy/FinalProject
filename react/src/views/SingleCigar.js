@@ -16,14 +16,15 @@ export default function SingleCigar() {
                 setCigar(data.data)
             }
         };
-        console.log(getCigarInfo())
+        getCigarInfo()
     }, [cigarId])
 
+    console.log(cigarId)
     console.log(cigar)
 
     return (
         <div>
-            <CigarCard c = {cigar}/>
+            <CigarCard card = {cigar}/>
         </div>
 
     )

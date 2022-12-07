@@ -7,7 +7,7 @@ export default class Nav extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/"><img src={logo} className='logo-width' /></Link>
+                    <Link className="navbar-brand" to="/"><img src={logo} className='logo-width' alt='Cdb Logo' /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

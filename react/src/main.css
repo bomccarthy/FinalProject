@@ -31,6 +31,23 @@ a:active { text-decoration: none; color: inherit;  }
     max-width: 5rem;
 }
 
+.signup {
+    display: block;
+    margin: auto;
+    max-width: 50%;
+}
+
+.boxes {
+    margin: 0.5rem;
+}
+
+.messages {
+    margin-top: 5rem;
+    text-align: center;
+    font-size: larger;
+    padding: 0.5rem;
+}
+
 .nav-font-size {
     font-size: x-large;
     font-weight: 400;
