@@ -7,9 +7,9 @@ export default class Footer extends Component {
             <footer className="navbar navbar-expand-lg navbar-dark fixed-bottom bg-dark">
                 <div className="container-fluid justify-content-end">
                     <div className="navbar-nav">
-                        <Link className="nav-link active mx-2" to="index.html">Cigar DB</Link>
+                        <Link className="nav-link active mx-2" to="/">Cigar DB</Link>
                         <Link className="nav-link active mx-2" to="mailto:sysrock@gmail.com">Contact</Link>
-                        <Link className="nav-link active mx-2" to="#">About</Link>
+                        <Link className="nav-link active mx-2" to="/about">About</Link>
                     </div>
                 </div>
             </footer>

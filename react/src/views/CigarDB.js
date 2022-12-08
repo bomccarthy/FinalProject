@@ -67,7 +67,7 @@ export default class CigarDB extends Component {
                     activeClassName={"active"}
                     forcePage={this.state.currentPage} />
                     <div className='cigar-table'>
-                        <table class="table table-dark table-borderless">
+                        <table className="table table-dark table-borderless">
                             <thead>
                                 <tr>
                                     <th scope="col">Cigar</th>

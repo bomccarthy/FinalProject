@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
+import { Navigate } from 'react-router-dom';
 
 export default class Signup extends Component {
-  
+  constructor() {
+    super();
+    this.state = {
+      redirect: false
+    }
+  }
   sendSignUpInfo = async (e) => {
     e.preventDefault();
     const fname = e.target.fname.value
@@ -14,7 +20,7 @@ export default class Signup extends Component {
       console.log('Password and CnfmPswd do not match.')
       return this.props.addMessage('Password and Confirm Password do not match.', 'danger')
     }
-    const res = await fetch('http://localhost:5000/api/signup', {
+    const res = await fetch('http://127.0.0.1:5000/api/signup', {
       method: "POST",
       body: JSON.stringify({
         fname: fname,
@@ -27,18 +33,22 @@ export default class Signup extends Component {
         "Content-Type": 'application/json'
       }
     });
+    console.log(res)
     const data = await res.json();
     if (data.status === 'ok') {
-      this.props.addMessage(data.message, 'success')    // redirect and show message
+      this.setState({redirect: true})
+      this.props.addMessage(data.message, 'success');    // redirect and show message
     } else if (data.status === 'not ok') {
       this.props.addMessage(data.message, 'danger')
     } 
     console.log(data)
   }
   
-
   render() {
     console.log('rendering is about to happen')
+    if (this.state.redirect) {
+      return <Navigate to='/login' />
+    }
     return (
       <div className='signup'>
         <h1 className='boxes'>Sign Up</h1>

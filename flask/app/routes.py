@@ -89,3 +89,4 @@ def filterCigarByLength():
     print(lst_args)
     no2 = args[lst_args[0]]
     print(no2)
+    

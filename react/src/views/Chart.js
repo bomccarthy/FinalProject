@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import chart from './../static/images/CigarSize&ShapeChart.jpg';
+import chart from './../static/images/CigarSize&ShapeChart_sm.jpg';
 
 export default class Chart extends Component {
   render() {

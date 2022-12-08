@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": true
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "CockroachDB",
+            "name": "cigar-db",
+            "connectString": "cockroachdb://bo:5GCFmGCe9RJBeAm2xzNipQ@mooing-uakari-7255.7tt.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
+        }
+    ]
+}

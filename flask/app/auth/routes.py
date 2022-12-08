@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user
 from .forms import LoginForm, UserCreationForm
 from app.models import User
 from werkzeug.security import check_password_hash
+from ..apiauthhelper import basic_auth
 
 auth = Blueprint('auth', __name__, template_folder='auth_templates')
 
@@ -35,3 +36,39 @@ def signMeUpAPI():
             'status': 'ok',
             'message': 'Successfully created a user.',
             'data': user.to_dict()}
+
+@auth.route('/api/login', methods=["POST"])
+def logMeInAPI():
+    data = request.json
+    username = data['username']
+    password = data['password']
+    
+    user = User.query.filter_by(username=username).first()
+    if user:
+        if check_password_hash(user.password, password):
+            return {
+                'status': 'ok',
+                'message': f'Succesfully logged in. Welcome back, {user.username}!',
+                'user': user.to_dict()
+            }
+        else:
+            return {
+            'status': 'not ok',
+            'message': 'Incorrect password.'
+        }
+
+    else:
+        return {
+            'status': 'not ok',
+            'message': 'A user with that username does not exist.'
+        }
+
+@auth.route('/api/token', methods=["POST"])
+@basic_auth.login_required
+def getToken():
+    user = basic_auth.current_user()
+    return {
+                'status': 'ok',
+                'message': f'Succesfully logged in. Welcome back, {user.username}!',
+                'user': user.to_dict()
+            }

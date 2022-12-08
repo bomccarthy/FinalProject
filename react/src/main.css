@@ -48,6 +48,30 @@ a:active { text-decoration: none; color: inherit;  }
     padding: 0.5rem;
 }
 
+.home-text-style {
+    font-size: 1.25rem;
+    margin: auto;
+}
+
+.home-form-style {
+    font-size: larger;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.navbar li:last-child {
+    float: right; /* last li item */
+}
+
+.center {
+    margin: auto;
+}
+
+.about {
+    font-size: larger;
+    text-align: center;
+}
+
 .nav-font-size {
     font-size: x-large;
     font-weight: 400;
